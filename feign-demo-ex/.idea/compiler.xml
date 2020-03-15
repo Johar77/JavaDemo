@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="feign-service" />
+        <module name="feign-client" />
+        <module name="common" />
+        <module name="feign-api" />
+        <module name="common-lib" />
+        <module name="feign-demo-ex" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="common-lib" target="1.8" />
+      <module name="feign-api" target="1.8" />
+      <module name="feign-client" target="1.8" />
+      <module name="feign-demo-ex" target="1.8" />
+      <module name="feign-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="common-lib" options="-parameters" />
+      <module name="feign-api" options="-parameters" />
+      <module name="feign-client" options="-parameters" />
+      <module name="feign-demo-ex" options="-parameters" />
+      <module name="feign-service" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,5 +1,6 @@
 package com.johar.javawebdemo.errorhandler;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,18 +35,20 @@ public class UserController {
     }
 
     @GetMapping("/findByName")
-    public BaseResponse findByName(@RequestParam @NotEmpty String name){
-        String str = name.toLowerCase();
-        List<UserVO> users = new ArrayList<UserVO>();
-        for (UserVO userVO : userVOList){
-            if (userVO.getName().toLowerCase().contains(name)){
-                users.add(userVO);
-            }
-        }
+    public BaseResponse findByName(@RequestParam @NotBlank String name){
+//        String str = name.toLowerCase();
+////        List<UserVO> users = new ArrayList<UserVO>();
+////        for (UserVO userVO : userVOList){
+////            if (userVO.getName().toLowerCase().contains(name)){
+////                users.add(userVO);
+////            }
+////        }
+////
+////        return BaseResponse
+////                .builder()
+////                .data(users)
+////                .build();
 
-        return BaseResponse
-                .builder()
-                .data(users)
-                .build();
+        throw new SubBussinessException(ErrorCode.ERROR_PARAM_MISS, "Johar Test");
     }
 }
