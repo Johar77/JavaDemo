@@ -25,11 +25,25 @@ public class BaseResult<T> {
         this.message = message;
         this.data = data;
     }
+    public BaseResult(ResultCode resultCode){
+        this.code = resultCode.getResultCode();
+        this.message = resultCode.getResultMsg();
+    }
+
+    public BaseResult(ResultCode resultCode, String message){
+        this.code = resultCode.getResultCode();
+        this.message = message;
+    }
+
     public static <T> BaseResult<T> success(T data){
         return new BaseResult(ResultCode.OK.getResultCode(), ResultCode.OK.getResultMsg(), data);
     }
 
-    public static <T> BaseResult<T> error(int errorCode, String message){
-        return new BaseResult(errorCode, message, null);
+    public static <T> BaseResult<T> error(ResultCode resultCode, String message){
+        return new BaseResult(resultCode, message);
+    }
+
+    public static <T> BaseResult<T> error(ResultCode resultCode){
+        return new BaseResult(resultCode);
     }
 }

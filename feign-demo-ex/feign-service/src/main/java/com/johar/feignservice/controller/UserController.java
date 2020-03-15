@@ -1,6 +1,10 @@
 package com.johar.feignservice.controller;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import com.johar.commonlib.BaseResult;
+import com.johar.commonlib.ResultCode;
+import com.johar.commonlib.exception.BussinessException;
+import com.johar.commonlib.exception.ServiceException;
 import com.johar.feignapi.UserApi;
 import com.johar.feignapi.dto.UserDto;
 import org.springframework.validation.annotation.Validated;
@@ -29,5 +33,15 @@ public class UserController implements UserApi {
                         .age(21)
                         .name("Johar")
                         .build());
+    }
+
+    @PostMapping("/error")
+    public BaseResult findUserInternalError(){
+        throw new ServiceException(ResultCode.UNKNOWN_ERROR);
+    }
+
+    @PostMapping("/exception")
+    public BaseResult findUserException(){
+        throw new BussinessException(ResultCode.FAIL, "获取用户失败");
     }
 }

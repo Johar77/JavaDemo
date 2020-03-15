@@ -20,6 +20,14 @@ public class BaseResultWithPage<T> extends BaseResult<T> {
         super();
     }
 
+    public BaseResultWithPage(ResultCode resultCode){
+        super(resultCode);
+    }
+
+    public BaseResultWithPage(ResultCode resultCode, String message){
+        super(resultCode, message);
+    }
+
     public BaseResultWithPage(int code, String message, T data) {
         super(code, message, data);
     }
